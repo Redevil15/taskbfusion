@@ -107,4 +107,4 @@ export const NavItem = ({
       </AccordionContent>
     </AccordionItem>
   )
-}
+};

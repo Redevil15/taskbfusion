@@ -1,7 +1,8 @@
-import { OrganizationSwitcher, auth } from "@clerk/nextjs";
+import { db } from "@/lib/db";
+
 
 const OrganizationIdPage = () => {
-  const { userId, orgId } = auth();
+
   return (
     <div>
       Organization page

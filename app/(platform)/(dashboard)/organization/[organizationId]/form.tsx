@@ -3,8 +3,8 @@
 import { createBoard } from "@/actions/create-board"
 import { Button } from "@/components/ui/button"
 import { useFormState } from "react-dom"
-import { FormInput } from "./form-input"
 import { UseAction } from "@/hooks/use-action"
+import { FormInput } from "@/components/form/form-input"
 
 export const Form = () => {
   const { execute, fieldErrors } = UseAction(createBoard, {
@@ -19,6 +19,8 @@ export const Form = () => {
   const onSubmit = (formData: FormData) => {
     const title = formData.get('title') as string
 
+    console.log({ title })
+
     execute({ title });
   }
 
@@ -26,6 +28,8 @@ export const Form = () => {
     <form action={onSubmit}>
       <div className="flex flex-col space-y-2">
         <FormInput
+          label="Board title"
+          id="title"
           errors={fieldErrors}
         />
       </div>

@@ -13,6 +13,7 @@ import { FormSubmit } from "./form-submit"
 import { Button } from "@/components/ui/button"
 import { XIcon } from "lucide-react"
 import { createBoard } from "@/actions/create-board"
+import { toast } from "sonner"
 
 interface FormPopoverProps {
   children: React.ReactNode;
@@ -29,9 +30,11 @@ export const FormPopover = ({
 }: FormPopoverProps) => {
   const { execute, fieldErrors } = UseAction(createBoard, {
     onSuccess: (data) => {
+      toast.success("Board created")
       console.log("data", data)
     },
     onError: (error) => {
+      toast.error(error)
       console.log("error", error)
     }
   });

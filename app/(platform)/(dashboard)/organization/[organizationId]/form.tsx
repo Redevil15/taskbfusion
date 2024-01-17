@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { useFormState } from "react-dom"
 import { UseAction } from "@/hooks/use-action"
 import { FormInput } from "@/components/form/form-input"
+import { FormSubmit } from "@/components/form/form-submit"
 
 export const Form = () => {
   const { execute, fieldErrors } = UseAction(createBoard, {
@@ -34,9 +35,9 @@ export const Form = () => {
         />
       </div>
 
-      <Button type="submit" className="ml-1">
-        Submit
-      </Button>
+      <FormSubmit>
+        Save
+      </FormSubmit>
     </form>
   )
 }

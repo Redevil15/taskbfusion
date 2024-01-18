@@ -10,7 +10,7 @@ export const BoardNavbar = async ({
 }: BoardNavbarProps) => {
 
   return (
-    <div className="w-full h-14 z-[40px] bg-black/50 fixed top-14 flex items-center px-6 gap-x-4 text-white">
+    <div className="w-full h-14 z-[40] bg-black/50 fixed top-14 flex items-center px-6 gap-x-4 text-white cursor-pointer">
       <BoardTitleForm
         data={data}
       />

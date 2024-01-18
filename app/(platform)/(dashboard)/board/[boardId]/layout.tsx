@@ -1,33 +1,34 @@
-import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { notFound, redirect } from "next/navigation";
+
+import { db } from "@/lib/db";
 import { BoardNavbar } from "./_components/board-nabvar";
+
 
 export async function generateMetadata({
   params
 }: {
-  params: { boardId: string }
+  params: { boardId: string; };
 }) {
   const { orgId } = auth();
 
   if (!orgId) {
     return {
       title: "Board",
-    }
+    };
   }
 
   const board = await db.board.findUnique({
     where: {
       id: params.boardId,
       orgId
-    },
+    }
   });
 
   return {
-    title: board?.title || "Board"
-  }
-
-};
+    title: board?.title || "Board",
+  };
+}
 
 const BoardIdLayout = async ({
   children,
@@ -39,19 +40,19 @@ const BoardIdLayout = async ({
   const { orgId } = auth();
 
   if (!orgId) {
-    return redirect("/select-org")
+    redirect("/select-org");
   }
 
   const board = await db.board.findUnique({
     where: {
       id: params.boardId,
-      orgId
+      orgId,
     },
   });
 
   if (!board) {
     notFound();
-  };
+  }
 
   return (
     <div
@@ -64,7 +65,7 @@ const BoardIdLayout = async ({
         {children}
       </main>
     </div>
-  )
+  );
 };
 
-export default BoardIdLayout
+export default BoardIdLayout;

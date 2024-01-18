@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import {
   Popover,
@@ -5,7 +7,10 @@ import {
   PopoverContent,
   PopoverClose
 } from "@/components/ui/popover"
+import { UseAction } from "@/hooks/use-action"
 import { MoreHorizontal, X } from "lucide-react"
+import { toast } from "sonner"
+import { deleteBoard } from "@/actions/delete-board"
 
 
 interface BoardOptionsProps {
@@ -15,6 +20,16 @@ interface BoardOptionsProps {
 export const BoardOptions = ({
   id,
 }: BoardOptionsProps) => {
+  const { execute, isLoading } = UseAction(deleteBoard, {
+    onError: (error) => {
+      toast.error(error);
+    }
+  })
+
+  const onDelete = () => {
+    execute({ id });
+  }
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -38,7 +53,8 @@ export const BoardOptions = ({
         </PopoverClose>
         <Button
           variant="ghost"
-          // onClick={() => { }}
+          onClick={onDelete}
+          disabled={isLoading}
           className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
         >
           Delete this board

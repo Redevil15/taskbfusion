@@ -72,7 +72,7 @@ export const ListHeader = ({
   useEventListener("keydown", onKeyDown);
 
   return (
-    <div className="pt-2 px-2 text-sm font-semibold flex justify-between items-start gap-x-2">
+    <div className="pt-2 px-2 text-sm font-semibold flex justify-between items-start- gap-x-2">
       {isEditing ? (
         <form
           ref={formRef}
@@ -81,11 +81,13 @@ export const ListHeader = ({
         >
           <input
             hidden
+            name="id"
             id="id"
             value={data.id}
           />
           <input
             hidden
+            name="boardId"
             id="boardId"
             value={data.boardId}
           />
@@ -93,7 +95,7 @@ export const ListHeader = ({
             ref={inputRef}
             onBlur={onBlur}
             id="title"
-            placeholder="Enter list title..."
+            placeholder="Enter list title.."
             defaultValue={title}
             className="text-sm px-[7px] py-1 h-7 font-medium border-transparent hover:border-input focus:border-input transition truncate bg-transparent focus:bg-white"
           />
@@ -107,6 +109,10 @@ export const ListHeader = ({
           {title}
         </div>
       )}
+      {/* <ListOptions
+      onAddCard={onAddCard}
+      data={data}
+    /> */}
     </div>
   )
 }

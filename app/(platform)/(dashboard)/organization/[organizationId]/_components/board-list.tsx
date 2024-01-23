@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 import { MAX_FREE_BOARDS } from "@/constants/boards"
 import { getAvailableCount } from "@/lib/org-limit"
+import { checkSuscription } from "@/lib/suscription"
 
 export const BoardList = async () => {
   const { orgId } = auth();
@@ -27,6 +28,7 @@ export const BoardList = async () => {
   });
 
   const availableCount = await getAvailableCount();
+  const isPro = await checkSuscription();
 
   return (
     <div className="space-y-4">
@@ -57,7 +59,7 @@ export const BoardList = async () => {
           >
             <p className="text-sm">Create new board</p>
             <span className="">
-              {`${MAX_FREE_BOARDS - availableCount} remaining`}
+              {isPro ? "Unlimited" : `${MAX_FREE_BOARDS - availableCount} remaining`}
             </span>
             <Hint
               sideOffset={40}

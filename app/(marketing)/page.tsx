@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Medal } from "lucide-react";
 import Link from "next/link";
-import localFont from "next/font/local"
+import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +22,7 @@ const textFont = Poppins({
     "800",
     "900"
   ]
-})
+});
 
 const MarketingPage = () => {
   return (
@@ -33,29 +33,35 @@ const MarketingPage = () => {
           headingFont.className
         )}
       >
-        <div className="mb-4 flex items-center border shadow-sm p-4 bg-amber-100 text-amber-700 rounded-full uppercase">
+        <div className="mb-4 flex items-center border shadow-sm p-4 bg-teal-100 text-teal-700 rounded-full uppercase"> {/* Cambiar el color de fondo y texto */}
           <Medal className="h-6 w-6 mr-2" />
-          No 1 task managment
+          No 1 in Task Management
         </div>
-        <h1 className="text-3xl md:text-6xl text-center text-neutral-800 mb-6">TaskBFusion helps team move.</h1>
-        <div className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md pb-4 w-fit">
-          work forward.
+        <h1 className="text-3xl md:text-6xl text-center text-neutral-900 mb-6">TaskBFusion: Empowering Tasks.</h1>
+        <div className="text-3xl md:text-6xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 p-2 rounded-md pb-4 w-fit">
+          Propel Your Work.
         </div>
       </div>
       <div
         className={cn(
-          "text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto",
+          "text-sm md:text-xl text-neutral-500 mt-4 max-w-xs md:max-w-2xl text-center mx-auto",
           textFont.className
-        )}>
-        Colaborate, manage projects, and rearch new productivity peaks. From high rises to the home office, the way your team works is unique - accomplish it all with TaskBFusion.
+        )}
+      >
+        Collaborate, manage projects, and reach new productivity peaks. From corporate offices to home setups, your teams potential is boundless - unlock it all with TaskBoost.
+        <br />
+        <span className="text-sm italic">
+          Note: This is a marketing page. At this time, the app does not accept premium payments. This feature will be available in the future.
+        </span>
+
       </div>
       <Button className="mt-6" size="lg" asChild>
         <Link href="/sign-up">
-          Get TaskBFusion for free
+          Start Your TaskBoost Journey Now
         </Link>
       </Button>
     </div>
-  )
-}
+  );
+};
 
 export default MarketingPage;

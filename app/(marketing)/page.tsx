@@ -48,7 +48,7 @@ const MarketingPage = () => {
           textFont.className
         )}
       >
-        Collaborate, manage projects, and reach new productivity peaks. From corporate offices to home setups, your team's potential is boundless - unlock it all with TaskBoost.
+        Collaborate, manage projects, and reach new productivity peaks. From corporate offices to home setups, your teams potential is boundless - unlock it all with TaskBoost.
         <br />
         <span className="text-sm italic">
           Note: This is a marketing page. At this time, the app does not accept premium payments. This feature will be available in the future.
